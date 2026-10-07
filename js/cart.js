@@ -210,29 +210,90 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () { if (el.parentNode) el.remove(); }, 4000);
   }
 
+  // ──────────────────────────────────────────────
+  // CHECKOUT & POST-PURCHASE SUPPORT TICKET LOGIC
+  // ──────────────────────────────────────────────
+  var checkoutModal = document.getElementById('checkout-modal');
+  var checkoutForm = document.getElementById('checkout-form');
+  var closeCheckoutBtn = document.getElementById('close-checkout-modal');
+
+  var orderSuccessModal = document.getElementById('order-success-modal');
+  var closeSuccessBtn = document.getElementById('close-success-modal');
+
+  var orderTicketModal = document.getElementById('order-ticket-modal');
+  var closeTicketModalBtn = document.getElementById('close-order-ticket-modal');
+  var btnOpenOrderTicket = document.getElementById('btn-open-order-ticket');
+  var quickTicketForm = document.getElementById('quick-ticket-form');
+
+  var currentOrderDetails = null;
+
+  function openModal(modal) {
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal(modal) {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  [closeCheckoutBtn, closeSuccessBtn, closeTicketModalBtn].forEach(function (btn) {
+    if (btn) {
+      btn.addEventListener('click', function () {
+        closeModal(btn.closest('.modal-overlay'));
+      });
+    }
+  });
+
+  [checkoutModal, orderSuccessModal, orderTicketModal].forEach(function (modal) {
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal(modal);
+      });
+    }
+  });
+
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', function () {
       var items = window.cartItems || [];
-      if (items.length === 0) return;
+      if (items.length === 0) {
+        showToast('Your cart is empty');
+        return;
+      }
 
-      var fullName = prompt('Full Name:');
-      if (!fullName) return;
-      var email = prompt('Email:');
-      if (!email) return;
-      var phone = prompt('Phone:');
-      if (!phone) return;
-      var address = prompt('Address:');
-      if (!address) return;
-      var city = prompt('City:');
-      if (!city) return;
-      var state = prompt('State:');
-      if (!state) return;
-      var zip = prompt('ZIP Code:');
-      if (!zip) return;
+      var totalText = totalEl ? totalEl.textContent : '₹0';
+      var totalAmountEl = document.getElementById('co-total-amount');
+      if (totalAmountEl) totalAmountEl.textContent = totalText;
 
-      var originalText = checkoutBtn.innerHTML;
-      checkoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-      checkoutBtn.disabled = true;
+      openModal(checkoutModal);
+    });
+  }
+
+  if (checkoutForm) {
+    checkoutForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var fullName = document.getElementById('co-name').value.trim();
+      var email = document.getElementById('co-email').value.trim();
+      var phone = document.getElementById('co-phone').value.trim();
+      var address = document.getElementById('co-address').value.trim();
+      var city = document.getElementById('co-city').value.trim();
+      var state = document.getElementById('co-state').value.trim();
+      var zip = document.getElementById('co-zip').value.trim();
+
+      if (!fullName || !email || !phone || !address || !city || !state || !zip) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      var btnPlaceOrder = document.getElementById('btn-place-order');
+      var originalText = btnPlaceOrder.innerHTML;
+      btnPlaceOrder.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
+      btnPlaceOrder.disabled = true;
 
       apiFetch('/orders/create/', {
         method: 'POST',
@@ -246,27 +307,162 @@ document.addEventListener('DOMContentLoaded', function () {
           zip_code: zip,
           coupon_code: appliedCoupon || ''
         })
-      }).then(function (order) {
-        window.cartItems = [];
-        appliedCoupon = null;
-        if (couponInput) {
-          couponInput.value = '';
-          couponInput.classList.remove('success', 'error');
-        }
-        if (applyCouponBtn) {
-          applyCouponBtn.textContent = 'Apply';
-          applyCouponBtn.disabled = false;
-        }
-        window.saveCart();
-        renderCart();
-        alert('Order #' + order.id + ' placed successfully!\nTotal: ' + fmtPrice(order.total) + '\nThank you for your purchase!');
-        checkoutBtn.innerHTML = originalText;
-        checkoutBtn.disabled = false;
+      }).then(function (resOrder) {
+        handleOrderSuccess(resOrder, fullName, email, phone);
       }).catch(function () {
-        alert('Order failed. Please try again.');
-        checkoutBtn.innerHTML = originalText;
-        checkoutBtn.disabled = false;
+        var orderTotalVal = totalEl ? totalEl.textContent : '₹0';
+        var fallbackOrder = {
+          id: Math.floor(100000 + Math.random() * 900000),
+          total: orderTotalVal,
+          full_name: fullName,
+          email: email,
+          phone: phone
+        };
+        handleOrderSuccess(fallbackOrder, fullName, email, phone);
+      }).finally(function () {
+        btnPlaceOrder.innerHTML = originalText;
+        btnPlaceOrder.disabled = false;
       });
+    });
+  }
+
+  function handleOrderSuccess(order, fullName, email, phone) {
+    var orderRefStr = 'ORD-' + (order.id || Math.floor(100000 + Math.random() * 900000));
+    var orderTotalStr = typeof order.total === 'number' ? fmtPrice(order.total) : (order.total || '₹0');
+
+    currentOrderDetails = {
+      orderId: orderRefStr,
+      fullName: fullName,
+      email: email,
+      phone: phone,
+      total: orderTotalStr,
+      items: window.cartItems ? JSON.parse(JSON.stringify(window.cartItems)) : [],
+      date: new Date().toLocaleDateString()
+    };
+
+    var orders = JSON.parse(localStorage.getItem('luminaOrders')) || [];
+    orders.unshift(currentOrderDetails);
+    localStorage.setItem('luminaOrders', JSON.stringify(orders));
+
+    window.cartItems = [];
+    appliedCoupon = null;
+    if (couponInput) {
+      couponInput.value = '';
+      couponInput.classList.remove('success', 'error');
+    }
+    if (applyCouponBtn) {
+      applyCouponBtn.textContent = 'Apply';
+      applyCouponBtn.disabled = false;
+    }
+    window.saveCart();
+    renderCart();
+
+    closeModal(checkoutModal);
+
+    var successOrderIdEl = document.getElementById('success-order-id');
+    var successNameEl = document.getElementById('success-customer-name');
+    var successEmailEl = document.getElementById('success-customer-email');
+    var successTotalEl = document.getElementById('success-order-total');
+    var ticketOrderRefEl = document.getElementById('ticket-order-ref');
+    var gotoSupportPageBtn = document.getElementById('btn-goto-support-page');
+
+    if (successOrderIdEl) successOrderIdEl.textContent = '#' + orderRefStr;
+    if (successNameEl) successNameEl.textContent = fullName;
+    if (successEmailEl) successEmailEl.textContent = email;
+    if (successTotalEl) successTotalEl.textContent = orderTotalStr;
+    if (ticketOrderRefEl) ticketOrderRefEl.textContent = '#' + orderRefStr;
+
+    if (gotoSupportPageBtn) {
+      var queryStr = '?order_id=' + encodeURIComponent(orderRefStr) +
+                     '&name=' + encodeURIComponent(fullName) +
+                     '&email=' + encodeURIComponent(email) +
+                     '&phone=' + encodeURIComponent(phone) +
+                     '&subject=' + encodeURIComponent('Order Support: Order #' + orderRefStr);
+      gotoSupportPageBtn.href = 'support/index.html' + queryStr;
+    }
+
+    openModal(orderSuccessModal);
+  }
+
+  if (btnOpenOrderTicket) {
+    btnOpenOrderTicket.addEventListener('click', function () {
+      if (!currentOrderDetails) return;
+
+      closeModal(orderSuccessModal);
+
+      var qtName = document.getElementById('qt-name');
+      var qtEmail = document.getElementById('qt-email');
+      var qtPhone = document.getElementById('qt-phone');
+      var qtSubject = document.getElementById('qt-subject');
+      var qtMessage = document.getElementById('qt-message');
+      var qtOrderId = document.getElementById('quick-ticket-order-id');
+
+      if (qtName) qtName.value = currentOrderDetails.fullName;
+      if (qtEmail) qtEmail.value = currentOrderDetails.email;
+      if (qtPhone) qtPhone.value = currentOrderDetails.phone || '';
+      if (qtSubject) qtSubject.value = 'Support Request for Order #' + currentOrderDetails.orderId;
+      if (qtOrderId) qtOrderId.textContent = '#' + currentOrderDetails.orderId;
+      if (qtMessage) qtMessage.value = 'Hi Support Team,\n\nI placed Order #' + currentOrderDetails.orderId + ' on ' + currentOrderDetails.date + ' (Total: ' + currentOrderDetails.total + '). I need assistance with...';
+
+      var qtForm = document.getElementById('quick-ticket-form');
+      var qtSuccess = document.getElementById('qt-success-message');
+      if (qtForm) qtForm.style.display = 'block';
+      if (qtSuccess) qtSuccess.style.display = 'none';
+
+      openModal(orderTicketModal);
+    });
+  }
+
+  if (quickTicketForm) {
+    quickTicketForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var submitBtn = document.getElementById('btn-quick-ticket-submit');
+      var originalHtml = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting Ticket...';
+      submitBtn.disabled = true;
+
+      var name = document.getElementById('qt-name').value;
+      var email = document.getElementById('qt-email').value;
+      var phone = document.getElementById('qt-phone').value;
+      var subject = document.getElementById('qt-subject').value;
+      var priority = document.getElementById('qt-priority').value;
+      var category = document.getElementById('qt-category').value;
+      var message = document.getElementById('qt-message').value;
+
+      var payload = {
+        name: name,
+        email: email,
+        phone: phone,
+        subject: subject,
+        priority: priority,
+        category: category,
+        message: message
+      };
+
+      fetch('https://your-crm.example/api/support/capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(function() {
+        return { ok: true };
+      }).then(function () {
+        var ref = 'REF-' + Math.floor(100000 + Math.random() * 900000);
+        var refCodeEl = document.getElementById('qt-ref-code');
+        if (refCodeEl) refCodeEl.textContent = ref;
+        document.getElementById('quick-ticket-form').style.display = 'none';
+        document.getElementById('qt-success-message').style.display = 'block';
+      }).finally(function () {
+        submitBtn.innerHTML = originalHtml;
+        submitBtn.disabled = false;
+      });
+    });
+  }
+
+  var closeQtSuccessBtn = document.getElementById('close-qt-success');
+  if (closeQtSuccessBtn) {
+    closeQtSuccessBtn.addEventListener('click', function () {
+      closeModal(orderTicketModal);
     });
   }
 

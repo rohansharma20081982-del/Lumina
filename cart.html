@@ -71,6 +71,7 @@
         </li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="support/index.html">Support</a></li>
       </ul>
       <div class="nav-actions">
         <button class="search-trigger" aria-label="Search"><i class="fas fa-search"></i></button>
@@ -91,6 +92,7 @@
     <a href="shop.html">Shop</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="support/index.html">Support</a>
     <a href="wishlist.html">Wishlist</a>
     <a href="cart.html">Cart</a>
     <a href="login.html">Account</a>
@@ -248,5 +250,221 @@
   <script src="js/main.js"></script>
   <script src="js/animation.js"></script>
   <script src="js/cart.js"></script>
+
+  <!-- ===== CHECKOUT MODAL ===== -->
+  <div class="modal-overlay" id="checkout-modal" role="dialog" aria-hidden="true">
+    <div class="modal-card modal-lg">
+      <button class="modal-close" id="close-checkout-modal" aria-label="Close modal"><i class="fas fa-times"></i></button>
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fas fa-shopping-bag"></i></div>
+        <h2>Complete Your Purchase</h2>
+        <p>Enter your shipping & contact details to place your order.</p>
+      </div>
+
+      <form id="checkout-form" class="checkout-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="co-name">Full Name <span class="required-star">*</span></label>
+            <div class="input-wrap">
+              <i class="fas fa-user"></i>
+              <input type="text" id="co-name" required placeholder="John Doe">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="co-email">Email Address <span class="required-star">*</span></label>
+            <div class="input-wrap">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="co-email" required placeholder="john@example.com">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="co-phone">Phone Number <span class="required-star">*</span></label>
+            <div class="input-wrap">
+              <i class="fas fa-phone"></i>
+              <input type="tel" id="co-phone" required placeholder="+91 91234 56789">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="co-zip">ZIP Code <span class="required-star">*</span></label>
+            <div class="input-wrap">
+              <i class="fas fa-mail-bulk"></i>
+              <input type="text" id="co-zip" required placeholder="831001">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="co-address">Delivery Address <span class="required-star">*</span></label>
+          <div class="input-wrap">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" id="co-address" required placeholder="123 Main Street, Suite 4B">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="co-city">City <span class="required-star">*</span></label>
+            <div class="input-wrap">
+              <i class="fas fa-city"></i>
+              <input type="text" id="co-city" required placeholder="Jamshedpur">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="co-state">State <span class="required-star">*</span></label>
+            <div class="input-wrap">
+              <i class="fas fa-globe"></i>
+              <input type="text" id="co-state" required placeholder="Jharkhand">
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-summary-mini" style="display:flex; justify-content:space-between; align-items:center; background:#f8f9fa; padding:14px 20px; border-radius:10px; margin:20px 0;">
+          <span style="font-size:14px; font-weight:600; color:#555;">Total Payable Amount:</span>
+          <strong id="co-total-amount" style="font-size:20px; font-weight:700; color:var(--color-primary, #c9a84c);">₹0</strong>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block" id="btn-place-order" style="padding:16px;">
+          <i class="fas fa-lock"></i> Confirm & Place Order
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== ORDER SUCCESS & TICKET RAISE MODAL ===== -->
+  <div class="modal-overlay" id="order-success-modal" role="dialog" aria-hidden="true">
+    <div class="modal-card modal-md text-center">
+      <button class="modal-close" id="close-success-modal" aria-label="Close modal"><i class="fas fa-times"></i></button>
+      <div class="success-icon-animated">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <span class="badge-success-tag">Order Placed Successfully 🎉</span>
+      <h2 style="font-family:var(--font-display); font-size:24px; font-weight:700; margin-bottom:6px;">Thank You For Your Purchase!</h2>
+      <p class="order-ref-text">Order Reference: <strong id="success-order-id" style="color:#0d0d0d; font-family:var(--font-display);">#ORD-10042</strong></p>
+
+      <div class="order-details-card">
+        <div class="odc-row">
+          <span>Customer Name:</span>
+          <strong id="success-customer-name">John Doe</strong>
+        </div>
+        <div class="odc-row">
+          <span>Email Address:</span>
+          <strong id="success-customer-email">john@example.com</strong>
+        </div>
+        <div class="odc-row">
+          <span>Total Paid:</span>
+          <strong id="success-order-total" class="gold-text">₹21,490</strong>
+        </div>
+        <div class="odc-row">
+          <span>Estimated Delivery:</span>
+          <strong>3 – 5 Business Days</strong>
+        </div>
+      </div>
+
+      <!-- POST PURCHASE SUPPORT TICKET RAISE CARD -->
+      <div class="post-purchase-ticket-card">
+        <div class="pptc-header">
+          <div class="pptc-icon"><i class="fas fa-headset"></i></div>
+          <div class="pptc-title">
+            <h4>Need Support For This Order?</h4>
+            <p>Have questions about delivery, tracking, or warranty?</p>
+          </div>
+        </div>
+        <button class="btn btn-gold btn-block" id="btn-open-order-ticket" type="button">
+          <i class="fas fa-ticket-alt"></i> Raise Support Ticket for Order <span id="ticket-order-ref">#ORD-10042</span>
+        </button>
+      </div>
+
+      <div style="margin-top: 16px; display: flex; gap: 12px;">
+        <a href="support/index.html" class="btn btn-outline btn-block" id="btn-goto-support-page" style="font-size:13px; padding:12px;">
+          <i class="fas fa-external-link-alt"></i> Full Support Portal
+        </a>
+        <a href="shop.html" class="btn btn-outline btn-block" style="font-size:13px; padding:12px;">
+          <i class="fas fa-shopping-bag"></i> Continue Shopping
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK SUPPORT TICKET MODAL ===== -->
+  <div class="modal-overlay" id="order-ticket-modal" role="dialog" aria-hidden="true">
+    <div class="modal-card modal-lg">
+      <button class="modal-close" id="close-order-ticket-modal" aria-label="Close modal"><i class="fas fa-times"></i></button>
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
+        <h2>Raise Support Ticket for Your Order</h2>
+        <p>Submit your inquiry directly to our support team.</p>
+      </div>
+
+      <div class="order-autofill-banner" id="quick-ticket-banner">
+        <div><i class="fas fa-shield-alt"></i> Ticket linked to <strong>Order <span id="quick-ticket-order-id">#ORD-10042</span></strong></div>
+      </div>
+
+      <form id="quick-ticket-form" class="support-form" novalidate>
+        <div class="form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Full Name <span style="color:red;">*</span></label>
+            <input type="text" id="qt-name" required placeholder="John Doe" style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px;">
+          </div>
+          <div class="form-group">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Email Address <span style="color:red;">*</span></label>
+            <input type="email" id="qt-email" required placeholder="john@example.com" style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px;">
+          </div>
+        </div>
+
+        <div class="form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Phone Number</label>
+            <input type="tel" id="qt-phone" placeholder="+91 91234 56789" style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px;">
+          </div>
+          <div class="form-group">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Subject <span style="color:red;">*</span></label>
+            <input type="text" id="qt-subject" required placeholder="Order Support Request" style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px;">
+          </div>
+        </div>
+
+        <div class="form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Priority</label>
+            <select id="qt-priority" style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px;">
+              <option value="Low">Low</option>
+              <option value="Normal" selected>Normal</option>
+              <option value="High">High</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Category</label>
+            <select id="qt-category" style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px;">
+              <option value="Support" selected>Support</option>
+              <option value="Technical issue">Technical Issue</option>
+              <option value="Billing">Billing</option>
+              <option value="General enquiry">General Enquiry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:20px;">
+          <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Message / Issue Description <span style="color:red;">*</span></label>
+          <textarea id="qt-message" rows="4" required placeholder="Describe what you need assistance with..." style="width:100%; padding:10px 14px; border:1px solid #ddd; border-radius:8px; font-family:inherit;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block" id="btn-quick-ticket-submit" style="padding:14px;">
+          <i class="fas fa-paper-plane"></i> Submit Ticket Now
+        </button>
+      </form>
+
+      <div id="qt-success-message" style="display:none; text-align:center; padding:30px 0;">
+        <div style="font-size:48px; color:#2ecc71; margin-bottom:12px;"><i class="fas fa-check-circle"></i></div>
+        <h3 style="font-family:var(--font-display); font-size:22px; font-weight:700;">Support Ticket Raised!</h3>
+        <p style="font-size:14px; color:#666; margin:8px 0 16px;">Reference Code: <strong id="qt-ref-code" style="color:#0d0d0d; font-family:monospace; font-size:16px;">LUM-123456</strong></p>
+        <p style="font-size:13px; color:#888;">Our support team will contact you within 24 hours.</p>
+        <button class="btn btn-outline" id="close-qt-success" style="margin-top:20px; padding:10px 24px;">Close Window</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -48,6 +48,103 @@
   };
 
   // ──────────────────────────────────────────────
+  //  URL PARAMETER & RECENT ORDER AUTO-FILL
+  // ──────────────────────────────────────────────
+  function initAutoFillAndOrders() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var orderIdParam = urlParams.get('order_id');
+    var nameParam = urlParams.get('name');
+    var emailParam = urlParams.get('email');
+    var phoneParam = urlParams.get('phone');
+    var subjectParam = urlParams.get('subject');
+
+    var savedOrders = JSON.parse(localStorage.getItem('luminaOrders')) || [];
+
+    var formHeader = document.querySelector('.form-header');
+
+    if (savedOrders.length > 0 && formHeader) {
+      var recentBar = document.createElement('div');
+      recentBar.className = 'recent-orders-bar';
+      recentBar.style.cssText = 'background: #fafaf8; border: 1px solid #e2b659; border-radius: 14px; padding: 16px 20px; margin-bottom: 24px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.04);';
+
+      var barTitle = document.createElement('div');
+      barTitle.style.cssText = 'font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px;';
+      barTitle.innerHTML = '<i class="fas fa-shopping-bag" style="color:#c9a84c;"></i> Select a Recent Order to Raise Ticket:';
+      recentBar.appendChild(barTitle);
+
+      var chipWrap = document.createElement('div');
+      chipWrap.style.cssText = 'display: flex; gap: 10px; flex-wrap: wrap;';
+
+      savedOrders.slice(0, 4).forEach(function (ord) {
+        var chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'order-chip';
+        chip.style.cssText = 'background: #ffffff; border: 1.5px solid #c9a84c; color: #0d0d0d; border-radius: 20px; padding: 8px 16px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);';
+        chip.innerHTML = '<i class="fas fa-box-open" style="color:#c9a84c;"></i> Order #' + ord.orderId + ' (' + (ord.total || '₹0') + ')';
+
+        chip.addEventListener('click', function () {
+          fillFormWithOrder(ord);
+        });
+        chipWrap.appendChild(chip);
+      });
+
+      recentBar.appendChild(chipWrap);
+      formHeader.parentNode.insertBefore(recentBar, formHeader.nextSibling);
+    }
+
+    if (orderIdParam) {
+      if (nameInput && nameParam) nameInput.value = nameParam;
+      if (emailInput && emailParam) emailInput.value = emailParam;
+      if (phoneInput && phoneParam) phoneInput.value = phoneParam;
+      if (subjectInput) {
+        subjectInput.value = subjectParam || ('Order Support Request for Order #' + orderIdParam);
+      }
+      if (messageInput) {
+        messageInput.value = 'Hi LUMINA Support,\n\nI recently purchased an item under Order #' + orderIdParam + ' and I have a question regarding...';
+      }
+
+      showOrderBanner(orderIdParam);
+      setTimeout(checkSubmitReady, 300);
+    }
+  }
+
+  function fillFormWithOrder(ord) {
+    if (nameInput && ord.fullName) nameInput.value = ord.fullName;
+    if (emailInput && ord.email) emailInput.value = ord.email;
+    if (phoneInput && ord.phone) phoneInput.value = ord.phone;
+    if (subjectInput) subjectInput.value = 'Support Request for Order #' + ord.orderId;
+    if (messageInput) {
+      messageInput.value = 'Hi Support Team,\n\nI am reaching out regarding my purchase Order #' + ord.orderId + ' placed on ' + ord.date + ' (Total: ' + ord.total + ').\n\nPlease assist me with: ';
+    }
+    showOrderBanner(ord.orderId);
+    checkSubmitReady();
+    document.getElementById('support-form-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function showOrderBanner(orderId) {
+    var existingBanner = document.getElementById('order-autofill-banner');
+    if (existingBanner) existingBanner.remove();
+
+    var banner = document.createElement('div');
+    banner.id = 'order-autofill-banner';
+    banner.className = 'order-autofill-banner';
+    banner.style.cssText = 'background: rgba(226, 182, 89, 0.15); border: 1px solid rgba(226, 182, 89, 0.5); color: #7d5e1a; border-radius: 10px; padding: 12px 18px; font-size: 13px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; font-weight: 600;';
+    banner.innerHTML = '<div><i class="fas fa-ticket-alt" style="color:#c9a84c; margin-right:8px;"></i> Pre-filled for <strong>Order #' + orderId + '</strong></div><button type="button" style="background:none; border:none; color:#7d5e1a; cursor:pointer; font-size:14px;" title="Clear order info"><i class="fas fa-times"></i></button>';
+
+    banner.querySelector('button').addEventListener('click', function () {
+      banner.remove();
+      if (subjectInput) subjectInput.value = '';
+      if (messageInput) messageInput.value = '';
+      checkSubmitReady();
+    });
+
+    var formTag = document.getElementById('support-form');
+    if (formTag) formTag.parentNode.insertBefore(banner, formTag);
+  }
+
+  setTimeout(initAutoFillAndOrders, 100);
+
+  // ──────────────────────────────────────────────
   //  AUTO-FOCUS on first input
   // ──────────────────────────────────────────────
   if (nameInput) {
