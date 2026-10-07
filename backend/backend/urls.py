@@ -12,7 +12,7 @@ urlpatterns = [
     path('api/', include('store.urls')),
 ]
 
-for page in ['about', 'cart', 'contact', 'login', 'register', 'shop', 'wishlist', 'product', '404']:
+for page in ['about', 'cart', 'checkout', 'contact', 'login', 'register', 'shop', 'wishlist', 'product', '404']:
     urlpatterns.append(
         path(f'{page}.html', TemplateView.as_view(template_name=f'{page}.html'))
     )

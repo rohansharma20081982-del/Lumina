@@ -264,12 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showToast('Your cart is empty');
         return;
       }
-
-      var totalText = totalEl ? totalEl.textContent : '₹0';
-      var totalAmountEl = document.getElementById('co-total-amount');
-      if (totalAmountEl) totalAmountEl.textContent = totalText;
-
-      openModal(checkoutModal);
+      window.location.href = 'checkout.html';
     });
   }
 
