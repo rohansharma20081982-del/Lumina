@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <meta name="description" content="Log in to your LUMINA account for a personalized shopping experience.">
+  <title>Log In — LUMINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="loader-logo">LUMINA<span>.</span></div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- ===== LOGIN LAYOUT ===== -->
+  <div class="auth-layout">
+
+    <!-- Decorative Side -->
+    <div class="auth-decoration">
+      <div class="auth-decoration-content">
+        <div class="auth-logo">LUMINA<span>.</span></div>
+        <p>Premium luxury eyewear crafted for the discerning individual.</p>
+        <div class="auth-image">
+          <img src="images/products/solaris-aviator.jpg" alt="Luxury sunglasses" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Side -->
+    <div class="auth-form-section">
+      <div class="auth-card">
+        <h1>Welcome Back</h1>
+        <p>Sign in to your LUMINA account</p>
+
+        <form>
+          <div class="floating-label-group">
+            <input type="email" id="login-email" placeholder=" " required>
+            <label for="login-email">Email Address</label>
+          </div>
+          <div class="floating-label-group">
+            <input type="password" id="login-password" placeholder=" " required>
+            <label for="login-password">Password</label>
+          </div>
+
+          <div class="form-options">
+            <label><input type="checkbox" checked> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="auth-btn"><i class="fas fa-arrow-right"></i> Sign In</button>
+        </form>
+
+        <div class="auth-divider"><span>Or continue with</span></div>
+
+        <div class="auth-social-buttons">
+          <button aria-label="Login with Google"><i class="fab fa-google"></i> <span>Google</span></button>
+          <button aria-label="Login with Facebook"><i class="fab fa-facebook-f"></i> <span>Facebook</span></button>
+          <button aria-label="Login with Apple"><i class="fab fa-apple"></i> <span>Apple</span></button>
+        </div>
+
+        <p class="auth-link">Don't have an account? <a href="register.html">Create one</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

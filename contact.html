@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <meta name="description" content="Contact LUMINA — Get in touch with our team. Visit our store, call, or email us.">
+  <title>Contact — LUMINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="loader-logo">LUMINA<span>.</span></div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">LUMINA<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="shop.html">Shop</a>
+          <div class="mega-menu">
+            <div>
+              <h4>By Category</h4>
+              <ul>
+                <li><a href="shop.html">Aviator</a></li>
+                <li><a href="shop.html">Wayfarer</a></li>
+                <li><a href="shop.html">Round</a></li>
+                <li><a href="shop.html">Cat Eye</a></li>
+                <li><a href="shop.html">Sport</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>By Frame</h4>
+              <ul>
+                <li><a href="shop.html">Metal</a></li>
+                <li><a href="shop.html">Acetate</a></li>
+                <li><a href="shop.html">Titanium</a></li>
+                <li><a href="shop.html">Carbon Fiber</a></li>
+                <li><a href="shop.html">Wood</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Collections</h4>
+              <ul>
+                <li><a href="shop.html">Solaris</a></li>
+                <li><a href="shop.html">Nocturne</a></li>
+                <li><a href="shop.html">Heritage</a></li>
+                <li><a href="shop.html">Sport Elite</a></li>
+                <li><a href="shop.html">Limited Edition</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-trigger" aria-label="Search"><i class="fas fa-search"></i></button>
+        <a href="wishlist.html" class="wishlist-link" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="cart-count">3</span></a>
+        <a href="login.html" aria-label="Account"><i class="far fa-user"></i></a>
+        <a href="register.html" class="nav-signup">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="wishlist.html">Wishlist</a>
+    <a href="cart.html">Cart</a>
+    <a href="login.html">Account</a>
+    <a href="register.html">Sign Up</a>
+  </div>
+
+  <!-- Search Popup -->
+  <div class="search-popup" role="dialog" aria-label="Search">
+    <button class="search-close" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div class="search-popup-inner">
+      <input type="text" placeholder="Search LUMINA..." aria-label="Search input">
+      <p class="search-hint">Press ESC to close</p>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="contact-form-wrap">
+          <div class="section-tag">Get in Touch</div>
+          <h1>We'd Love to Hear from You</h1>
+          <p>Have a question, feedback, or just want to say hello? Drop us a message and we will get back to you within 24 hours.</p>
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Full Name</label>
+                <input type="text" id="contact-name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-phone">Phone Number</label>
+                <input type="tel" id="contact-phone" placeholder="+1 (555) 123-4567">
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <select id="contact-subject">
+                  <option value="">Select a subject</option>
+                  <option value="order">Order Inquiry</option>
+                  <option value="product">Product Question</option>
+                  <option value="returns">Returns &amp; Exchanges</option>
+                  <option value="wholesale">Wholesale Inquiry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <div class="contact-info-cards">
+            <div class="info-card">
+              <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>Visit Our Store</h4>
+                <p>Bistupur public square</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h4>Call Us</h4>
+                <p>9117994581</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>Email Us</h4>
+                <p>rk197214316@gmail.com</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><i class="far fa-clock"></i></div>
+              <div>
+                <h4>Store Hours</h4>
+                <p>Mon – Fri: 9:00 AM – 8:00 PM EST<br>Sat: 10:00 AM – 6:00 PM EST<br>Sun: Closed</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social-links">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAP ===== -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1839.1247170539223!2d86.18022903858584!3d22.793219567588533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e3948c1f89f7%3A0x33f5c924ace3f434!2sPublic%20Square%20Bistupur!5e0!3m2!1sen!2sin!4v1783489772015!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="LUMINA Store Location"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag">FAQ</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-question">What is your return policy? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>We offer a 30-day return policy from the date of delivery. Items must be unworn, in original packaging, and returned with all accessories. Once received and inspected, we process refunds within 5–7 business days.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you offer prescription lenses? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>Yes! Most of our frames can be fitted with prescription lenses. Simply select your frame and choose the prescription option during checkout. You can provide your prescription details, and our lab will craft the lenses to your exact specifications.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How long does shipping take? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>Domestic orders typically arrive within 3–5 business days via expedited shipping. International orders take 7–14 business days depending on destination. Free standard shipping is available on all orders over ₹1,499.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Are your sunglasses polarized? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>Many of our collections feature polarized lenses that eliminate 99% of reflected glare. Look for the "Polarized" tag on product pages. All our lenses provide 100% UVA/UVB protection regardless of polarization.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How do I find the right frame size? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>Check the inside of your current sunglasses for measurements (usually in the format 58-14-145). The first number is lens width, the second is bridge width, and the third is temple length. Use our size guide or visit our store for a personalized fitting.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you offer international shipping? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>Absolutely. We ship to over 40 countries worldwide. International shipping rates are calculated at checkout based on destination and order weight. Duties and taxes may apply depending on your country's customs policies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-content">
+          <h2>Join the LUMINA Club</h2>
+          <p>Subscribe for exclusive access to new drops, limited editions, and 10% off your first order.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">LUMINA<span>.</span></a>
+          <p>Premium luxury eyewear crafted for the discerning individual. Each pair is a statement of style, precision, and quality.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="shop.html">Aviator</a></li>
+            <li><a href="shop.html">Wayfarer</a></li>
+            <li><a href="shop.html">Round</a></li>
+            <li><a href="shop.html">Cat Eye</a></li>
+            <li><a href="shop.html">Sport</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Customer Service</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Bistupur public square</li>
+            <li><i class="fas fa-phone"></i> +91 9117994581</li>
+            <li><i class="fas fa-envelope"></i> rk197214316@gmail.com</li>
+            <li><i class="far fa-clock"></i> Mon-Fri: 9AM - 8PM EST</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LUMINA. All rights reserved. Crafted with precision.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa" aria-label="Visa"></i>
+          <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+          <i class="fab fa-cc-amex" aria-label="Amex"></i>
+          <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+          <i class="fab fa-cc-apple-pay" aria-label="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

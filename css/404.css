@@ -1,0 +1,83 @@
+/* ============================================
+   LUMINA - 404 Error Page
+   ============================================ */
+
+.error-section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 0 80px;
+}
+
+.error-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-code {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 15vw, 10rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+}
+
+.error-code span {
+  color: var(--accent);
+}
+
+.error-code::after {
+  content: '404';
+  position: absolute;
+  top: -4px;
+  left: 4px;
+  color: rgba(200, 169, 126, 0.1);
+  font-size: inherit;
+  z-index: -1;
+}
+
+.error-section h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.error-section p {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.error-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-actions .btn {
+  min-width: 180px;
+}
+
+@media screen and (max-width: 480px) {
+  .error-section {
+    padding: 100px 0 60px;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error-actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}

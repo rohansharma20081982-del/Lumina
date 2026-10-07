@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <meta name="description" content="Shop LUMINA luxury sunglasses — Aviator, Wayfarer, Round, Cat Eye, Sport, and more.">
+  <title>Shop — LUMINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="loader-logo">LUMINA<span>.</span></div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">LUMINA<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="shop.html" class="active">Shop</a>
+          <div class="mega-menu">
+            <div>
+              <h4>By Category</h4>
+              <ul>
+                <li><a href="shop.html">Aviator</a></li>
+                <li><a href="shop.html">Wayfarer</a></li>
+                <li><a href="shop.html">Round</a></li>
+                <li><a href="shop.html">Cat Eye</a></li>
+                <li><a href="shop.html">Sport</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>By Frame</h4>
+              <ul>
+                <li><a href="shop.html">Metal</a></li>
+                <li><a href="shop.html">Acetate</a></li>
+                <li><a href="shop.html">Titanium</a></li>
+                <li><a href="shop.html">Carbon Fiber</a></li>
+                <li><a href="shop.html">Wood</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Collections</h4>
+              <ul>
+                <li><a href="shop.html">Solaris</a></li>
+                <li><a href="shop.html">Nocturne</a></li>
+                <li><a href="shop.html">Heritage</a></li>
+                <li><a href="shop.html">Sport Elite</a></li>
+                <li><a href="shop.html">Limited Edition</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-trigger" aria-label="Search"><i class="fas fa-search"></i></button>
+        <a href="wishlist.html" class="wishlist-link" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+        <a href="login.html" aria-label="Account"><i class="far fa-user"></i></a>
+        <a href="register.html" class="nav-signup">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="wishlist.html">Wishlist</a>
+    <a href="cart.html">Cart</a>
+    <a href="login.html">Account</a>
+    <a href="register.html">Sign Up</a>
+  </div>
+
+  <!-- Search Popup -->
+  <div class="search-popup" role="dialog" aria-label="Search">
+    <button class="search-close" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div class="search-popup-inner">
+      <input type="text" placeholder="Search LUMINA..." aria-label="Search input">
+      <p class="search-hint">Press ESC to close</p>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="quick-view-modal" role="dialog" aria-label="Quick view">
+    <div class="quick-view-overlay"></div>
+    <div class="quick-view-body"></div>
+  </div>
+
+  <!-- ===== SHOP HERO ===== -->
+  <section class="shop-hero">
+    <div class="shop-hero-bg"></div>
+    <div class="shop-hero-content">
+      <span class="shop-hero-tag">Discover</span>
+      <h1 class="shop-hero-title">Our <span>Collection</span></h1>
+      <p class="shop-hero-desc">Handpicked luxury eyewear for every face, every moment, every aesthetic.</p>
+      <div class="shop-hero-stats">
+        <div class="shop-hero-stat">
+          <div class="shop-hero-stat-num">200+</div>
+          <div class="shop-hero-stat-label">Styles</div>
+        </div>
+        <div class="shop-hero-stat">
+          <div class="shop-hero-stat-num">50K+</div>
+          <div class="shop-hero-stat-label">Happy Customers</div>
+        </div>
+        <div class="shop-hero-stat">
+          <div class="shop-hero-stat-num">4.9</div>
+          <div class="shop-hero-stat-label">Avg Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHOP CONTENT ===== -->
+  <section class="shop-section">
+    <div class="shop-container">
+
+      <!-- Filter Overlay -->
+      <div class="shop-filter-overlay"></div>
+
+      <!-- Toolbar -->
+      <div class="shop-toolbar">
+        <div class="shop-toolbar-left">
+          <button class="shop-filter-btn"><i class="fas fa-sliders-h"></i> Filters</button>
+          <div class="shop-categories">
+            <button class="shop-cat active" data-cat="all">All</button>
+            <button class="shop-cat" data-cat="aviator">Aviator</button>
+            <button class="shop-cat" data-cat="wayfarer">Wayfarer</button>
+            <button class="shop-cat" data-cat="round">Round</button>
+            <button class="shop-cat" data-cat="cat-eye">Cat Eye</button>
+            <button class="shop-cat" data-cat="sport">Sport</button>
+            <button class="shop-cat" data-cat="square">Square</button>
+            <button class="shop-cat" data-cat="shield">Shield</button>
+          </div>
+        </div>
+        <div class="shop-toolbar-right">
+          <span class="shop-result-count">9 Products</span>
+          <div class="shop-view-toggle">
+            <button class="shop-view-btn active" data-view="grid" aria-label="Grid view"><i class="fas fa-th"></i></button>
+            <button class="shop-view-btn" data-view="list" aria-label="List view"><i class="fas fa-list"></i></button>
+          </div>
+          <div class="shop-sort-wrap">
+            <select class="shop-sort">
+              <option value="popular">Most Popular</option>
+              <option value="newest">Newest</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filters -->
+      <div class="shop-active-filters"></div>
+
+      <!-- Body -->
+      <div class="shop-body">
+
+        <!-- Filter Panel -->
+        <aside class="shop-filter-panel">
+          <div class="shop-filter-header">
+            <h3>Filters</h3>
+            <button class="shop-filter-clear">Clear All</button>
+            <button class="shop-filter-close"><i class="fas fa-times"></i></button>
+          </div>
+
+          <div class="shop-filter-group">
+            <div class="shop-filter-label"><i class="fas fa-tag"></i> Price Range</div>
+            <div class="shop-price-wrap">
+              <input type="range" class="shop-price-range" min="500" max="40000" value="40000">
+              <div class="shop-price-labels">
+                <span>₹500</span>
+                <span class="shop-price-val">₹40,000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-filter-group">
+            <div class="shop-filter-label"><i class="fas fa-building"></i> Brand</div>
+            <label class="shop-check"><input type="checkbox" value="lumina"> LUMINA</label>
+            <label class="shop-check"><input type="checkbox" value="solaris"> Solaris</label>
+            <label class="shop-check"><input type="checkbox" value="nocturne"> Nocturne</label>
+            <label class="shop-check"><input type="checkbox" value="quantum"> Quantum</label>
+          </div>
+
+          <div class="shop-filter-group">
+            <div class="shop-filter-label"><i class="fas fa-palette"></i> Color</div>
+            <div class="shop-colors">
+              <button class="shop-color" data-color="#C9A227" style="background:#C9A227" aria-label="Gold"></button>
+              <button class="shop-color" data-color="#111111" style="background:#111111" aria-label="Black"></button>
+              <button class="shop-color" data-color="#8B6914" style="background:#8B6914" aria-label="Tortoise"></button>
+              <button class="shop-color" data-color="#C0C0C0" style="background:#C0C0C0" aria-label="Silver"></button>
+              <button class="shop-color" data-color="#B76E79" style="background:#B76E79" aria-label="Rose Gold"></button>
+              <button class="shop-color" data-color="#5C4033" style="background:#5C4033" aria-label="Havana"></button>
+              <button class="shop-color" data-color="#2D2D2D" style="background:#2D2D2D" aria-label="Matte Black"></button>
+            </div>
+          </div>
+
+          <div class="shop-filter-group">
+            <div class="shop-filter-label"><i class="fas fa-glasses"></i> Frame Style</div>
+            <label class="shop-check"><input type="checkbox" value="full-rim"> Full Rim</label>
+            <label class="shop-check"><input type="checkbox" value="semi-rim"> Semi-Rim</label>
+            <label class="shop-check"><input type="checkbox" value="rimless"> Rimless</label>
+          </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="shop-main">
+          <div class="shop-grid" data-render="shop"></div>
+
+          <button class="shop-load-more">Load More Products <i class="fas fa-chevron-down"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-content">
+          <h2>Join the LUMINA Club</h2>
+          <p>Subscribe for exclusive access to new drops, limited editions, and 10% off your first order.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">LUMINA<span>.</span></a>
+          <p>Premium luxury eyewear crafted for the discerning individual. Each pair is a statement of style, precision, and quality.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="shop.html">Aviator</a></li>
+            <li><a href="shop.html">Wayfarer</a></li>
+            <li><a href="shop.html">Round</a></li>
+            <li><a href="shop.html">Cat Eye</a></li>
+            <li><a href="shop.html">Sport</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Customer Service</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Bistupur public square</li>
+            <li><i class="fas fa-phone"></i> +91 9117994581</li>
+            <li><i class="fas fa-envelope"></i> rk197214316@gmail.com</li>
+            <li><i class="far fa-clock"></i> Mon-Fri: 9AM - 8PM EST</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LUMINA. All rights reserved. Crafted with precision.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa" aria-label="Visa"></i>
+          <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+          <i class="fab fa-cc-amex" aria-label="Amex"></i>
+          <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+          <i class="fab fa-cc-apple-pay" aria-label="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

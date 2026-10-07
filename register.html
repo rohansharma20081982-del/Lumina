@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <meta name="description" content="Create your LUMINA account for exclusive access and a personalized shopping experience.">
+  <title>Create Account — LUMINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="loader-logo">LUMINA<span>.</span></div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- ===== REGISTER LAYOUT ===== -->
+  <div class="auth-layout">
+
+    <!-- Decorative Side -->
+    <div class="auth-decoration">
+      <div class="auth-decoration-content">
+        <div class="auth-logo">LUMINA<span>.</span></div>
+        <p>Join the LUMINA family and elevate your eyewear experience.</p>
+        <div class="auth-image">
+          <img src="images/products/sport-wrap.jpg" alt="Luxury sunglasses" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Side -->
+    <div class="auth-form-section">
+      <div class="auth-card">
+        <h1>Create Account</h1>
+        <p>Join LUMINA and get 10% off your first order</p>
+
+        <form>
+          <div class="floating-label-group">
+            <input type="text" id="reg-name" placeholder=" " required>
+            <label for="reg-name">Full Name</label>
+          </div>
+          <div class="floating-label-group">
+            <input type="email" id="reg-email" placeholder=" " required>
+            <label for="reg-email">Email Address</label>
+          </div>
+          <div class="floating-label-group">
+            <input type="password" id="reg-password" placeholder=" " required>
+            <label for="reg-password">Password</label>
+          </div>
+          <div class="floating-label-group">
+            <input type="password" id="reg-confirm" placeholder=" " required>
+            <label for="reg-confirm">Confirm Password</label>
+          </div>
+
+          <div class="terms-check">
+            <input type="checkbox" id="reg-terms" required>
+            <label for="reg-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+          </div>
+
+          <button type="submit" class="auth-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+        </form>
+
+        <div class="auth-divider"><span>Or sign up with</span></div>
+
+        <div class="auth-social-buttons">
+          <button aria-label="Sign up with Google"><i class="fab fa-google"></i> <span>Google</span></button>
+          <button aria-label="Sign up with Facebook"><i class="fab fa-facebook-f"></i> <span>Facebook</span></button>
+          <button aria-label="Sign up with Apple"><i class="fab fa-apple"></i> <span>Apple</span></button>
+        </div>
+
+        <p class="auth-link">Already have an account? <a href="login.html">Sign in</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

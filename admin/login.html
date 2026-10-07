@@ -1,0 +1,163 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+.login #header {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.login #header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.login #header h1 span {
+  color: #c8a97e;
+}
+.login .auth-tagline {
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
+  margin-top: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.login .auth-decoration-img {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login .auth-decoration-img img {
+  max-width: 120px;
+  opacity: 0.6;
+}
+.login .form-row {
+  padding: 10px 0;
+}
+.login .form-row label {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  display: block;
+}
+.login .form-row input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #2a2a2a;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.login .form-row input:focus {
+  border-color: #c8a97e;
+  box-shadow: 0 0 0 2px rgba(200,169,126,0.15);
+  outline: none;
+}
+.login .submit-row input {
+  width: 100%;
+  padding: 14px;
+  background: #c8a97e;
+  color: #0d0d0d;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.login .submit-row input:hover {
+  background: #e2b659;
+  transform: translateY(-1px);
+}
+.login .password-reset-link a {
+  color: #c8a97e;
+  font-size: 13px;
+  transition: color 0.25s ease;
+}
+.login .password-reset-link a:hover {
+  color: #e2b659;
+}
+</style>
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="auth-decoration-img">
+  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30 5C16.745 5 6 15.745 6 29v2c0 13.255 10.745 24 24 24s24-10.745 24-24v-2C54 15.745 43.255 5 30 5z" fill="none" stroke="#c8a97e" stroke-width="1.5"/>
+    <path d="M18 29c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#c8a97e" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M22 29c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#e2b659" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="10" y1="26" x2="16" y2="28" stroke="#c8a97e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="28" x2="50" y2="26" stroke="#c8a97e" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+</div>
+
+{% if form.errors and not form.non_field_errors %}
+<p class="errornote">
+{% blocktranslate count counter=form.errors.items|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktranslate %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="errornote">
+  {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+<div id="content-main">
+  {% if user.is_authenticated %}
+  <p class="errornote">
+    {% blocktranslate trimmed %}
+      You are authenticated as {{ username }}, but are not authorized to
+      access this page. Would you like to login to a different account?
+    {% endblocktranslate %}
+  </p>
+  {% endif %}
+
+  <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+    <div class="form-row">
+      {{ form.username.errors }}
+      <label for="id_username">{{ form.username.label }}:</label>
+      {{ form.username }}
+    </div>
+    <div class="form-row">
+      {{ form.password.errors }}
+      <label for="id_password">{{ form.password.label }}:</label>
+      {{ form.password }}
+      <input type="hidden" name="next" value="{{ next }}">
+    </div>
+    {% url 'admin_password_reset' as password_reset_url %}
+    {% if password_reset_url %}
+    <div class="password-reset-link">
+      <a href="{{ password_reset_url }}">{% translate 'Forgotten your password or username?' %}</a>
+    </div>
+    {% endif %}
+    <div class="submit-row">
+      <input type="submit" value="{% translate 'Log in' %}">
+    </div>
+  </form>
+</div>
+{% endblock %}

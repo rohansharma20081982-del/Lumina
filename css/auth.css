@@ -1,0 +1,322 @@
+/* ============================================
+   LUMINA - Auth Pages (Login / Register)
+   ============================================ */
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.auth-decoration {
+  background: var(--primary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.auth-decoration::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(200, 169, 126, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 20%;
+  right: -10%;
+}
+
+.auth-decoration::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(226, 182, 89, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  bottom: 10%;
+  left: -10%;
+}
+
+.auth-decoration-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+}
+
+.auth-decoration-content .auth-logo {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--secondary);
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.auth-decoration-content .auth-logo span {
+  color: var(--accent);
+}
+
+.auth-decoration-content p {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 15px;
+  max-width: 300px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.auth-decoration-content .auth-image {
+  margin-top: 40px;
+}
+
+.auth-decoration-content .auth-image img {
+  max-width: 300px;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 60px rgba(200, 169, 126, 0.1));
+}
+
+.auth-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-card h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.auth-card > p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+.floating-label-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.floating-label-group input {
+  width: 100%;
+  padding: 16px 16px 8px;
+  background: var(--secondary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  color: var(--text);
+  transition: border-color var(--transition);
+}
+
+.floating-label-group input:focus {
+  border-color: var(--accent);
+}
+
+.floating-label-group label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--text-lighter);
+  transition: all var(--transition);
+  pointer-events: none;
+}
+
+.floating-label-group input:focus ~ label,
+.floating-label-group input:not(:placeholder-shown) ~ label {
+  top: 8px;
+  transform: translateY(0);
+  font-size: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.floating-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.form-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.form-options label input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+
+.form-options a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.form-options a:hover {
+  text-decoration: underline;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary);
+  color: var(--secondary);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background var(--transition);
+  margin-bottom: 24px;
+}
+
+.auth-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.auth-divider span {
+  font-size: 12px;
+  color: var(--text-lighter);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.auth-social-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.auth-social-buttons button {
+  flex: 1;
+  padding: 12px;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.auth-social-buttons button:hover {
+  border-color: var(--accent);
+  background: rgba(200, 169, 126, 0.05);
+}
+
+.auth-social-buttons button i {
+  font-size: 16px;
+}
+
+.auth-link {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.auth-link a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.terms-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.terms-check input[type="checkbox"] {
+  accent-color: var(--accent);
+  margin-top: 3px;
+}
+
+.terms-check a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   RESPONSIVE — Auth
+   ========================================== */
+@media screen and (max-width: 768px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-decoration {
+    display: none;
+  }
+
+  .auth-form-section {
+    padding: 24px 16px;
+  }
+
+  .auth-card {
+    padding: 32px 24px;
+  }
+
+  .auth-card h1 {
+    font-size: 24px;
+  }
+
+  .auth-social-buttons {
+    flex-direction: column;
+  }
+}

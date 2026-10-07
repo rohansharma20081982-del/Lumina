@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <meta name="description" content="LUMINA - Premium Luxury Sunglasses. Discover our exclusive collection of handcrafted eyewear.">
+  <title>LUMINA — Premium Luxury Sunglasses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loader-logo">LUMINA<span>.</span></div>
+    <div class="loader-bar"></div>
+  </div>
+  <script>setTimeout(function(){var e=document.getElementById('loading-screen');if(e)e.classList.add('hidden');},2500);</script>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">LUMINA<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li>
+          <a href="shop.html">Shop</a>
+          <div class="mega-menu">
+            <div>
+              <h4>By Category</h4>
+              <ul>
+                <li><a href="shop.html">Aviator</a></li>
+                <li><a href="shop.html">Wayfarer</a></li>
+                <li><a href="shop.html">Round</a></li>
+                <li><a href="shop.html">Cat Eye</a></li>
+                <li><a href="shop.html">Sport</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>By Frame</h4>
+              <ul>
+                <li><a href="shop.html">Metal</a></li>
+                <li><a href="shop.html">Acetate</a></li>
+                <li><a href="shop.html">Titanium</a></li>
+                <li><a href="shop.html">Carbon Fiber</a></li>
+                <li><a href="shop.html">Wood</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Collections</h4>
+              <ul>
+                <li><a href="shop.html">Solaris</a></li>
+                <li><a href="shop.html">Nocturne</a></li>
+                <li><a href="shop.html">Heritage</a></li>
+                <li><a href="shop.html">Sport Elite</a></li>
+                <li><a href="shop.html">Limited Edition</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-trigger" aria-label="Search"><i class="fas fa-search"></i></button>
+        <a href="wishlist.html" class="wishlist-link" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+        <a href="login.html" aria-label="Account"><i class="far fa-user"></i></a>
+        <a href="register.html" class="nav-signup">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="wishlist.html">Wishlist</a>
+    <a href="cart.html">Cart</a>
+    <a href="login.html">Account</a>
+    <a href="register.html">Sign Up</a>
+  </div>
+
+  <!-- Search Popup -->
+  <div class="search-popup" role="dialog" aria-label="Search">
+    <button class="search-close" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div class="search-popup-inner">
+      <input type="text" placeholder="Search LUMINA..." aria-label="Search input">
+      <p class="search-hint">Press ESC to close</p>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="quick-view-modal" role="dialog" aria-label="Quick view">
+    <div class="quick-view-overlay"></div>
+    <div class="quick-view-body"></div>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-section">
+    <div class="hero-blur-circle hero-blur-circle-1"></div>
+    <div class="hero-blur-circle hero-blur-circle-2"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-tag"><i class="fas fa-sparkles"></i> New Summer Collection 2026</div>
+          <h1 class="hero-title">See the World in <br><span class="highlight">Premium Light</span></h1>
+          <p class="hero-desc">Discover handcrafted luxury eyewear designed for those who demand perfection. Every frame tells a story of elegance and precision.</p>
+          <a href="shop.html" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Explore Collection</a>
+          <div class="hero-badge-group">
+            <div class="hero-badge-item">
+              <span class="badge-number">500+</span>
+              <span class="badge-label">Exclusive Styles</span>
+            </div>
+            <div class="hero-badge-item">
+              <span class="badge-number">4.9</span>
+              <span class="badge-label">Customer Rating</span>
+            </div>
+            <div class="hero-badge-item">
+              <span class="badge-number">50K</span>
+              <span class="badge-label">Happy Customers</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-main">
+            <div class="hero-glare"></div>
+            <img src="images/products/solaris-aviator.jpg" alt="Luxury sunglasses" loading="eager">
+          </div>
+          <div class="floating-card floating-card-1 floating">
+            <div class="fc-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="fc-text">
+              <strong>Premium UV Protection</strong>
+              <span>100% UVA/UVB Block</span>
+            </div>
+          </div>
+          <div class="floating-card floating-card-2 floating floating-delay-1">
+            <div class="fc-icon"><i class="fas fa-gem"></i></div>
+            <div class="fc-text">
+              <strong>Handcrafted Quality</strong>
+              <span>Italian Materials</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED COLLECTION ===== -->
+  <section class="section featured-section">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="featured-text">
+          <div class="section-tag">Featured</div>
+          <h2 class="section-title">The Solaris <br>Collection</h2>
+          <p class="featured-desc">Inspired by the luminous horizon, our Solaris collection blends modern minimalism with timeless elegance. Each pair is meticulously crafted using lightweight titanium and signature gradient lenses.</p>
+          <a href="shop.html" class="btn btn-dark"><i class="fas fa-arrow-right"></i> Discover Now</a>
+        </div>
+        <div class="featured-image">
+          <img src="images/products/sport-wrap.jpg" alt="Solaris Collection">
+          <div class="featured-overlay-card">
+            <span class="foc-number">2026</span>
+            <div class="foc-text">
+              <strong>New Edition</strong>
+              Limited Release
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRAND STRIP ===== -->
+  <section class="brand-strip-section">
+    <div class="container">
+      <p class="brand-strip-label">As Seen In</p>
+      <div class="brand-strip-logos">
+        <span class="brand-logo-item">VOGUE</span>
+        <span class="brand-logo-item">GQ</span>
+        <span class="brand-logo-item">ELLE</span>
+        <span class="brand-logo-item">ESQUIRE</span>
+        <span class="brand-logo-item">HARPER'S</span>
+        <span class="brand-logo-item">W MAGAZINE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRENDING PRODUCTS ===== -->
+  <section class="section trending-section">
+    <div class="container">
+      <div class="trending-header">
+        <div>
+          <div class="section-tag">Trending Now</div>
+          <h2 class="section-title">Most Wanted</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="trending-grid" data-render="trending"></div>
+    </div>
+  </section>
+
+  <!-- ===== NEW ARRIVALS ===== -->
+  <section class="section arrivals-section">
+    <div class="container">
+      <div class="arrivals-header">
+        <div>
+          <div class="section-tag">New Arrivals</div>
+          <h2 class="section-title">Fresh Drops</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline">Shop New <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="arrivals-grid" data-render="newest"></div>
+    </div>
+  </section>
+
+  <!-- ===== BEST SELLERS ===== -->
+  <section class="section best-sellers-section">
+    <div class="container">
+      <div class="best-sellers-header">
+        <div>
+          <div class="section-tag">Top Picks</div>
+          <h2 class="section-title">Best Sellers</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline">Shop All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="best-sellers-grid" data-render="best-sellers"></div>
+    </div>
+  </section>
+
+  <!-- ===== LOOKBOOK / GALLERY ===== -->
+  <section class="section lookbook-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag">Style Gallery</div>
+        <h2 class="section-title">The Lookbook</h2>
+        <p class="section-subtitle">Discover curated looks and styling inspiration from the LUMINA editorial team.</p>
+      </div>
+      <div class="lookbook-grid">
+        <div class="lookbook-item animate-on-scroll">
+          <img class="lookbook-img" src="images/products/solaris-aviator.jpg" alt="Urban Edge Collection" loading="lazy">
+          <div class="lookbook-overlay">
+            <h3>Urban Edge</h3>
+            <p>18 looks &middot; Aviator &amp; Wayfarer</p>
+          </div>
+        </div>
+        <div class="lookbook-item animate-on-scroll">
+          <img class="lookbook-img" src="images/products/wayfarer-elite.jpg" alt="Sunset Boulevard Collection" loading="lazy">
+          <div class="lookbook-overlay">
+            <h3>Sunset Boulevard</h3>
+            <p>14 looks &middot; Oversize &amp; Shield</p>
+          </div>
+        </div>
+        <div class="lookbook-item animate-on-scroll">
+          <img class="lookbook-img" src="images/products/navigator-silver.jpg" alt="Business Class Collection" loading="lazy">
+          <div class="lookbook-overlay">
+            <h3>Business Class</h3>
+            <p>10 looks &middot; Premium Edit</p>
+          </div>
+        </div>
+        <div class="lookbook-item animate-on-scroll">
+          <img class="lookbook-img" src="images/products/round-gold.jpg" alt="Coastal Escape Collection" loading="lazy">
+          <div class="lookbook-overlay">
+            <h3>Coastal Escape</h3>
+            <p>12 looks &middot; Round &amp; Cat Eye</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="section categories-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag">Collections</div>
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-subtitle">Explore our curated collections designed for every style and occasion.</p>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card animate-on-scroll">
+          <img src="images/categories/aviator.jpg" alt="Aviator Sunglasses" loading="lazy">
+          <div class="category-overlay">
+            <span>Classic</span>
+            <h3>Aviator</h3>
+            <p>Timeless design, 24 styles</p>
+          </div>
+        </div>
+        <div class="category-card animate-on-scroll">
+          <img src="images/categories/wayfarer.jpg" alt="Wayfarer Sunglasses" loading="lazy">
+          <div class="category-overlay">
+            <span>Iconic</span>
+            <h3>Wayfarer</h3>
+            <p>Bold statement, 18 styles</p>
+          </div>
+        </div>
+        <div class="category-card animate-on-scroll">
+          <img src="images/categories/sport.jpg" alt="Sport Sunglasses" loading="lazy">
+          <div class="category-overlay">
+            <span>Performance</span>
+            <h3>Sport</h3>
+            <p>Engineered for action, 14 styles</p>
+          </div>
+        </div>
+        <div class="category-card animate-on-scroll">
+          <img src="images/categories/cat-eye.jpg" alt="Cat Eye Sunglasses" loading="lazy">
+          <div class="category-overlay">
+            <span>Elegant</span>
+            <h3>Cat Eye</h3>
+            <p>Chic femininity, 12 styles</p>
+          </div>
+        </div>
+        <div class="category-card animate-on-scroll">
+          <img src="images/categories/round.jpg" alt="Round Sunglasses" loading="lazy">
+          <div class="category-overlay">
+            <span>Vintage</span>
+            <h3>Round</h3>
+            <p>Retro charm, 10 styles</p>
+          </div>
+        </div>
+        <div class="category-card animate-on-scroll">
+          <img src="images/categories/square.jpg" alt="Shield Sunglasses" loading="lazy">
+          <div class="category-overlay">
+            <span>Futuristic</span>
+            <h3>Shield</h3>
+            <p>Bold vision, 8 styles</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CRAFTSMANSHIP ===== -->
+  <section class="section craft-section">
+    <div class="container">
+      <div class="craft-grid">
+        <div class="craft-image animate-on-scroll">
+            <img src="images/products/pilot-pro.jpg" alt="Artisan crafting premium eyewear" loading="lazy">
+          <div class="craft-floating">
+            <span class="cf-number">150+</span>
+            <span class="cf-text">Years of combined artisan experience</span>
+          </div>
+        </div>
+        <div class="craft-text animate-on-scroll">
+          <div class="section-tag">Artisanship</div>
+          <h2 class="section-title">Where Precision Meets Passion</h2>
+          <p>Every pair of LUMINA sunglasses begins its journey in the hands of master artisans who have dedicated their lives to the craft of optical excellence. From hand-selecting Italian acetate to individually inspecting each hinge, our process honors a tradition of quality that spans four generations.</p>
+          <p>We source our materials from the same suppliers trusted by luxury fashion houses, ensuring that every frame meets the exacting standards of those who demand nothing less than perfection.</p>
+          <div class="craft-stats">
+            <div class="craft-stat">
+              <div class="cs-number">45</div>
+              <div class="cs-label">Hand-crafted steps</div>
+            </div>
+            <div class="craft-stat">
+              <div class="cs-number">12</div>
+              <div class="cs-label">Quality checks</div>
+            </div>
+            <div class="craft-stat">
+              <div class="cs-number">24</div>
+              <div class="cs-label">Month warranty</div>
+            </div>
+          </div>
+          <a href="about.html" class="btn btn-primary" style="margin-top: 32px;">Our Story <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag">Why LUMINA</div>
+        <h2 class="section-title">Crafted for Excellence</h2>
+        <p class="section-subtitle">Every detail matters when it comes to protecting your vision and elevating your style.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon"><i class="fas fa-gem"></i></div>
+          <h3>Premium Materials</h3>
+          <p>Italian acetate, lightweight titanium, and hand-polished lenses sourced from the finest artisans across the globe.</p>
+        </div>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>UV Protection</h3>
+          <p>Every pair offers 100% UVA/UVB protection with polarized lens options for optimal eye health and visual clarity.</p>
+        </div>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon"><i class="fas fa-rotate-left"></i></div>
+          <h3>30-Day Returns</h3>
+          <p>Not satisfied? Return any pair within 30 days for a full refund. No questions asked, no hassle involved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUSTOMER REVIEWS ===== -->
+  <section class="section reviews-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag">Testimonials</div>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">Join thousands of satisfied customers who trust LUMINA for their eyewear.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card animate-on-scroll">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"Exceptional quality. The Solaris Aviators are hands down the best sunglasses I have ever owned. The clarity is unmatched and the weight is perfectly balanced."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80" alt="James Mitchell" loading="lazy">
+            <div>
+              <h4>James Mitchell</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card animate-on-scroll">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"I purchased the Aura Cat Eye as a gift and ended up buying a pair for myself. The rose gold frame is stunning. Fast shipping and beautiful packaging."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=80" alt="Sophia Chen" loading="lazy">
+            <div>
+              <h4>Sophia Chen</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card animate-on-scroll">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p class="review-text">"The Quantum Sports are perfect for my active lifestyle. They stay put during runs and the polarization makes a huge difference on bright days. Highly recommend."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=80" alt="Marcus Johnson" loading="lazy">
+            <div>
+              <h4>Marcus Johnson</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card animate-on-scroll">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"I've been wearing LUMINA for years and the quality just keeps getting better. The Cat Eye Noir frames are absolutely gorgeous and worth every penny."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80" alt="Emily Rodriguez" loading="lazy">
+            <div>
+              <h4>Emily Rodriguez</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card animate-on-scroll">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"Ordered the Navigator Silver for my husband and he hasn't taken them off since. The fit is perfect and the case it comes with is premium quality too."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80" alt="David Kim" loading="lazy">
+            <div>
+              <h4>David Kim</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card animate-on-scroll">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p class="review-text">"The Round Gold frames are stunning. I get compliments everywhere I go. The blue-tinted lenses are not just stylish but provide excellent clarity outdoors."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80" alt="Aisha Patel" loading="lazy">
+            <div>
+              <h4>Aisha Patel</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTAGRAM GALLERY ===== -->
+  <section class="section instagram-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-tag">@LuminaEyewear</div>
+        <h2 class="section-title">Follow Us on Instagram</h2>
+        <p class="section-subtitle">Tag your look with <strong>#LuminaMoments</strong> for a chance to be featured.</p>
+      </div>
+      <div class="instagram-grid">
+        <div class="instagram-item animate-on-scroll">
+          <div class="insta-img-wrap">
+            <img src="images/products/butterfly-gold.jpg" alt="Gold aviator sunglasses on marble" loading="lazy">
+            <div class="insta-overlay">
+              <i class="fab fa-instagram"></i>
+              <span>@lumina_style</span>
+            </div>
+          </div>
+        </div>
+        <div class="instagram-item animate-on-scroll">
+          <div class="insta-img-wrap">
+            <img src="images/products/sport-wrap.jpg" alt="Sunglasses on beach towel" loading="lazy">
+            <div class="insta-overlay">
+              <i class="fab fa-instagram"></i>
+              <span>@travelwithlumina</span>
+            </div>
+          </div>
+        </div>
+        <div class="instagram-item animate-on-scroll">
+          <div class="insta-img-wrap">
+            <img src="images/products/wayfarer-elite.jpg" alt="Model wearing wayfarer sunglasses" loading="lazy">
+            <div class="insta-overlay">
+              <i class="fab fa-instagram"></i>
+              <span>@luminamoments</span>
+            </div>
+          </div>
+        </div>
+        <div class="instagram-item animate-on-scroll">
+          <div class="insta-img-wrap">
+            <img src="images/products/round-gold.jpg" alt="Street style with round sunglasses" loading="lazy">
+            <div class="insta-overlay">
+              <i class="fab fa-instagram"></i>
+              <span>@lumina_everyday</span>
+            </div>
+          </div>
+        </div>
+        <div class="instagram-item animate-on-scroll">
+          <div class="insta-img-wrap">
+            <img src="images/products/solaris-aviator.jpg" alt="Summer vibes with aviators" loading="lazy">
+            <div class="insta-overlay">
+              <i class="fab fa-instagram"></i>
+              <span>@lumina_summer</span>
+            </div>
+          </div>
+        </div>
+        <div class="instagram-item animate-on-scroll">
+          <div class="insta-img-wrap">
+            <img src="images/products/cat-eye-noir.jpg" alt="Urban style sunglasses" loading="lazy">
+            <div class="insta-overlay">
+              <i class="fab fa-instagram"></i>
+              <span>@lumina_urban</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GIFT CARD PROMO ===== -->
+  <section class="section gift-card-section">
+    <div class="container">
+      <div class="gift-card-inner">
+        <div class="gift-card-text animate-on-scroll">
+          <div class="section-tag">Gifting</div>
+          <h2 class="section-title">Give the Gift of Style</h2>
+          <p>Can't decide? Let them choose their perfect pair. LUMINA digital gift cards are delivered instantly and redeemable on any product across our collection.</p>
+          <a href="#" class="btn btn-primary">Order Gift Card <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="gift-card-visual animate-on-scroll">
+          <div class="gift-card-mockup">
+            <div class="gcm-icon"><i class="fas fa-gift"></i></div>
+            <h3>LUMINA</h3>
+            <div class="gcm-sub">Gift Card</div>
+            <div class="gcm-divider"></div>
+            <div class="gcm-amount">₹2,000</div>
+            <div class="gcm-label">— ₹40,000</div>
+            <button class="gcm-cta">Purchase</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES BANNER ===== -->
+  <section class="features-banner">
+    <div class="container">
+      <div class="features-banner-grid">
+        <div class="feature-banner-item">
+          <div class="fbi-icon"><i class="fas fa-truck"></i></div>
+          <h4>Free Shipping</h4>
+          <p>On all orders over ₹1,499</p>
+        </div>
+        <div class="feature-banner-item">
+          <div class="fbi-icon"><i class="fas fa-shield"></i></div>
+          <h4>2-Year Warranty</h4>
+          <p>Against manufacturer defects</p>
+        </div>
+        <div class="feature-banner-item">
+          <div class="fbi-icon"><i class="fas fa-rotate-left"></i></div>
+          <h4>Easy Returns</h4>
+          <p>30-day hassle-free policy</p>
+        </div>
+        <div class="feature-banner-item">
+          <div class="fbi-icon"><i class="fas fa-lock"></i></div>
+          <h4>Secure Checkout</h4>
+          <p>256-bit SSL encryption</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-content">
+          <h2>Join the LUMINA Club</h2>
+          <p>Subscribe for exclusive access to new drops, limited editions, and 10% off your first order.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">LUMINA<span>.</span></a>
+          <p>Premium luxury eyewear crafted for the discerning individual. Each pair is a statement of style, precision, and quality.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="shop.html">Aviator</a></li>
+            <li><a href="shop.html">Wayfarer</a></li>
+            <li><a href="shop.html">Round</a></li>
+            <li><a href="shop.html">Cat Eye</a></li>
+            <li><a href="shop.html">Sport</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Customer Service</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Bistupur public square</li>
+            <li><i class="fas fa-phone"></i> +91 9117994581</li>
+            <li><i class="fas fa-envelope"></i> rk197214316@gmail.com</li>
+            <li><i class="far fa-clock"></i> Mon-Fri: 9AM - 8PM EST</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LUMINA. All rights reserved. Crafted with precision.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa" aria-label="Visa"></i>
+          <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+          <i class="fab fa-cc-amex" aria-label="Amex"></i>
+          <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+          <i class="fab fa-cc-apple-pay" aria-label="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+</body>
+</html>
