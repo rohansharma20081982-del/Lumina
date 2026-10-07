@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+  <meta name="description" content="Raise a support ticket with LUMINA — Get help with orders, billing, technical issues, or general enquiries.">
+  <title>Support — LUMINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="loader-logo">LUMINA<span>.</span></div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">LUMINA<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li>
+          <a href="../shop.html">Shop</a>
+          <div class="mega-menu">
+            <div>
+              <h4>By Category</h4>
+              <ul>
+                <li><a href="../shop.html">Aviator</a></li>
+                <li><a href="../shop.html">Wayfarer</a></li>
+                <li><a href="../shop.html">Round</a></li>
+                <li><a href="../shop.html">Cat Eye</a></li>
+                <li><a href="../shop.html">Sport</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>By Frame</h4>
+              <ul>
+                <li><a href="../shop.html">Metal</a></li>
+                <li><a href="../shop.html">Acetate</a></li>
+                <li><a href="../shop.html">Titanium</a></li>
+                <li><a href="../shop.html">Carbon Fiber</a></li>
+                <li><a href="../shop.html">Wood</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Collections</h4>
+              <ul>
+                <li><a href="../shop.html">Solaris</a></li>
+                <li><a href="../shop.html">Nocturne</a></li>
+                <li><a href="../shop.html">Heritage</a></li>
+                <li><a href="../shop.html">Sport Elite</a></li>
+                <li><a href="../shop.html">Limited Edition</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-trigger" aria-label="Search"><i class="fas fa-search"></i></button>
+        <a href="../wishlist.html" class="wishlist-link" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="../cart.html" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="cart-count">3</span></a>
+        <a href="../login.html" aria-label="Account"><i class="far fa-user"></i></a>
+        <a href="../register.html" class="nav-signup">Sign Up</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="../shop.html">Shop</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../wishlist.html">Wishlist</a>
+    <a href="../cart.html">Cart</a>
+    <a href="../login.html">Account</a>
+    <a href="../register.html">Sign Up</a>
+  </div>
+
+  <!-- Search Popup -->
+  <div class="search-popup" role="dialog" aria-label="Search">
+    <button class="search-close" aria-label="Close search"><i class="fas fa-times"></i></button>
+    <div class="search-popup-inner">
+      <input type="text" placeholder="Search LUMINA..." aria-label="Search input">
+      <p class="search-hint">Press ESC to close</p>
+    </div>
+  </div>
+
+  <!-- ===== SUPPORT HERO ===== -->
+  <section class="support-hero">
+    <div class="support-hero-bg"></div>
+    <div class="support-hero-overlay"></div>
+    <div class="container">
+      <div class="support-hero-content">
+        <div class="section-tag"><i class="fas fa-headset"></i> Customer Support</div>
+        <h1>How Can We Help You?</h1>
+        <p>Submit a support ticket and our team will get back to you within 24 hours. We're here to ensure your LUMINA experience is nothing short of exceptional.</p>
+      </div>
+    </div>
+    <!-- Decorative particles -->
+    <div class="hero-particle" style="top:15%;left:10%"></div>
+    <div class="hero-particle" style="top:60%;left:85%"></div>
+    <div class="hero-particle" style="top:80%;left:20%"></div>
+    <div class="hero-particle" style="top:25%;left:75%"></div>
+  </section>
+
+  <!-- ===== SUPPORT TICKET FORM ===== -->
+  <section class="support-section">
+    <div class="container">
+      <div class="support-grid">
+        <!-- Left: Form -->
+        <div class="support-form-wrap" id="support-form-wrap">
+          <div class="form-header">
+            <div class="form-icon-ring">
+              <i class="fas fa-ticket-alt"></i>
+            </div>
+            <h2>Raise a Support Ticket</h2>
+            <p>Fill in the details below. All fields marked with <span class="required-star">*</span> are required.</p>
+          </div>
+
+          <form class="support-form" id="support-form" novalidate>
+            <!-- Row: Name + Email -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="support-name">Full Name <span class="required-star">*</span></label>
+                <div class="input-wrap">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="support-name" name="name" placeholder="John Doe" required autocomplete="name">
+                </div>
+                <span class="field-error" id="error-name"></span>
+              </div>
+              <div class="form-group">
+                <label for="support-email">Email Address <span class="required-star">*</span></label>
+                <div class="input-wrap">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="support-email" name="email" placeholder="john@example.com" required autocomplete="email">
+                </div>
+                <span class="field-error" id="error-email"></span>
+              </div>
+            </div>
+
+            <!-- Row: Phone + Subject -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="support-phone">Phone Number <span class="optional-tag">Optional</span></label>
+                <div class="input-wrap">
+                  <i class="fas fa-phone"></i>
+                  <input type="tel" id="support-phone" name="phone" placeholder="+91 91234 56789" autocomplete="tel">
+                </div>
+                <span class="field-error" id="error-phone"></span>
+              </div>
+              <div class="form-group">
+                <label for="support-subject">Subject <span class="required-star">*</span></label>
+                <div class="input-wrap">
+                  <i class="fas fa-tag"></i>
+                  <input type="text" id="support-subject" name="subject" placeholder="Brief summary of your issue" required>
+                </div>
+                <span class="field-error" id="error-subject"></span>
+              </div>
+            </div>
+
+            <!-- Row: Priority + Category -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="support-priority">Priority</label>
+                <div class="select-wrap">
+                  <i class="fas fa-flag"></i>
+                  <select id="support-priority" name="priority">
+                    <option value="Low">Low</option>
+                    <option value="Normal" selected>Normal</option>
+                    <option value="High">High</option>
+                    <option value="Urgent">Urgent</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="support-category">Category</label>
+                <div class="select-wrap">
+                  <i class="fas fa-folder"></i>
+                  <select id="support-category" name="category">
+                    <option value="Support" selected>Support</option>
+                    <option value="Technical issue">Technical Issue</option>
+                    <option value="Billing">Billing</option>
+                    <option value="General enquiry">General Enquiry</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="support-message">Message / Description <span class="required-star">*</span></label>
+              <div class="textarea-wrap">
+                <textarea id="support-message" name="message" placeholder="Describe your issue in detail. The more information you provide, the faster we can help..." required maxlength="2000"></textarea>
+                <span class="char-counter" id="char-counter">0 / 2000</span>
+              </div>
+              <span class="field-error" id="error-message"></span>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-submit" id="btn-submit" disabled>
+              <span class="btn-content">
+                <i class="fas fa-paper-plane"></i>
+                <span>Submit Ticket</span>
+              </span>
+              <span class="btn-loader" style="display:none">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Submitting...</span>
+              </span>
+            </button>
+
+            <p class="form-note">
+              <i class="fas fa-shield-alt"></i>
+              Your information is secure and will only be used to process your support request.
+            </p>
+          </form>
+        </div>
+
+        <!-- Right: Sidebar Info -->
+        <div class="support-sidebar">
+          <!-- Quick Help Cards -->
+          <div class="sidebar-card">
+            <div class="sidebar-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Quick Resolution</h3>
+            <p>Most tickets are resolved within 24 hours. Urgent tickets are prioritized and handled within 4 hours during business hours.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <h3>Email Updates</h3>
+            <p>You will receive updates on your registered email including ticket confirmation, agent responses, and resolution status.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-icon"><i class="fas fa-phone-alt"></i></div>
+            <h3>Need Immediate Help?</h3>
+            <p>Call us at <strong>+91 9117994581</strong><br>Mon–Fri: 9AM – 8PM IST</p>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-icon"><i class="fas fa-comments"></i></div>
+            <h3>Other Ways to Reach Us</h3>
+            <ul class="sidebar-links">
+              <li><a href="../contact.html"><i class="fas fa-arrow-right"></i> Contact Page</a></li>
+              <li><a href="mailto:rk197214316@gmail.com"><i class="fas fa-arrow-right"></i> Email Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUCCESS MODAL ===== -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-modal" id="success-modal">
+      <div class="success-animation">
+        <div class="success-circle">
+          <i class="fas fa-check"></i>
+        </div>
+      </div>
+      <h2>Ticket Submitted Successfully!</h2>
+      <div class="ticket-ref" id="ticket-ref">
+        <span class="ref-label">Your Reference Number</span>
+        <span class="ref-number" id="ref-number">TKT-2026-00000</span>
+        <button class="copy-ref" id="copy-ref" title="Copy reference"><i class="fas fa-copy"></i></button>
+      </div>
+      <p class="success-note">
+        <i class="fas fa-envelope"></i>
+        You will receive updates on your registered email. Our team will respond within 24 hours.
+      </p>
+      <div class="success-actions">
+        <button class="btn btn-submit" id="btn-new-ticket"><i class="fas fa-plus"></i> Raise Another Ticket</button>
+        <a href="../index.html" class="btn btn-outline"><i class="fas fa-home"></i> Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="toast">
+    <div class="toast-icon"><i class="fas fa-check-circle"></i></div>
+    <div class="toast-message" id="toast-message">Reference number copied!</div>
+  </div>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-content">
+          <h2>Join the LUMINA Club</h2>
+          <p>Subscribe for exclusive access to new drops, limited editions, and 10% off your first order.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">LUMINA<span>.</span></a>
+          <p>Premium luxury eyewear crafted for the discerning individual. Each pair is a statement of style, precision, and quality.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../shop.html">Shop</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="../shop.html">Aviator</a></li>
+            <li><a href="../shop.html">Wayfarer</a></li>
+            <li><a href="../shop.html">Round</a></li>
+            <li><a href="../shop.html">Cat Eye</a></li>
+            <li><a href="../shop.html">Sport</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Customer Service</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Bistupur public square</li>
+            <li><i class="fas fa-phone"></i> +91 9117994581</li>
+            <li><i class="fas fa-envelope"></i> rk197214316@gmail.com</li>
+            <li><i class="far fa-clock"></i> Mon-Fri: 9AM - 8PM EST</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LUMINA. All rights reserved. Crafted with precision.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa" aria-label="Visa"></i>
+          <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+          <i class="fab fa-cc-amex" aria-label="Amex"></i>
+          <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+          <i class="fab fa-cc-apple-pay" aria-label="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/animation.js"></script>
+  <script src="support.js"></script>
+</body>
+</html>
